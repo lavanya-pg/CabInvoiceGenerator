@@ -22,4 +22,12 @@ public class InvoiceGeneratorTest {
         double cabInvoiceGeneratorTotalFare = cabInvoiceGenerator.getTotalFare(0.132, 1);
         Assert.assertEquals(5, cabInvoiceGeneratorTotalFare, 0);
     }
+    
+    @Test
+    public void givenMultipleRides_WhenCalculated_ReturnTotalFare() 
+    {
+        Rides[] rides = {new Rides(26.05, 29), new Rides(12.39, 25)};
+        double cabInvoiceGeneratorTotalFare = cabInvoiceGenerator.getTotalFare(rides);
+        Assert.assertEquals(438.4, cabInvoiceGeneratorTotalFare, 0);
+    }
 }
