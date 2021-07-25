@@ -1,13 +1,18 @@
 package cabinvoicegenerator;
 
+import cabinvoicegenerator.Rides.RideType;
+
 public class Rides 
 {
 	public double distance;
     public int time;
+    RideType rideType;
 
-    public Rides(double distance, int time) 
+    public Rides(RideType normalRide, double distance, int time) 
     {
-        this.distance = distance;
+    	this.rideType = rideType;
+    	this.distance = distance;
         this.time = time;
     }
+    public enum RideType {NORMAL_RIDE, PREMIUM_RIDE}
 }
