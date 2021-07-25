@@ -26,4 +26,10 @@ public class InvoiceGenerator
 	        totalFare = Math.max(totalFare, MINIMUM_FARE);
 	        return totalFare;
 	    }
+	    
+	    public InvoiceSummary getInvoiceSummary(Rides[] rides)
+	    {
+	        double totalFare = getTotalFare(rides);
+	        return new InvoiceSummary(rides.length, totalFare);
+	    }
 }
