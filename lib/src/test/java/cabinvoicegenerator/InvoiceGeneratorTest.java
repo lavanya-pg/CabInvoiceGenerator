@@ -2,6 +2,8 @@ package cabinvoicegenerator;
 
 import static org.junit.Assert.*;
 
+import cabinvoicegenerator.InvoiceSummary;
+import cabinvoicegenerator.Rides;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -38,5 +40,16 @@ public class InvoiceGeneratorTest {
         InvoiceSummary invoiceSummary = cabInvoiceGenerator.getInvoiceSummary(rides);
         InvoiceSummary summary = new InvoiceSummary(2, 440.1);
         Assert.assertEquals(summary, invoiceSummary);
+    }
+    
+    @Test
+    public void givenUserIdAndRides_ShouldReturnUserInvoiceSummary() 
+    {
+        String userId = "user@.com";
+        Rides[] rides = {new Rides(25.12, 40), new Rides(12.39, 25)};
+        cabInvoiceGenerator.addRides(userId, rides);
+        InvoiceSummary invoiceSummary = cabInvoiceGenerator.getInvoiceSummary(userId);
+        InvoiceSummary summary = new InvoiceSummary(2, 440.1);
+        Assert.assertEquals(invoiceSummary, summary);
     }
 }
